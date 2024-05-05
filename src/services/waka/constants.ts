@@ -1,3 +1,5 @@
+export const WAKA_API = 'https://beta-api.waka.vn'
+
 const route = {
   HOME: 'index',
   PROFILE: 'account-profile',
@@ -441,7 +443,7 @@ const ut = [
   }
 ]
 
-const r = {
+export const ApiConstant = {
   LOGIN_VIA_SOCIAL: 'LOGIN_VIA_SOCIAL',
   LOGIN_VIA_TOKEN: 'LOGIN_VIA_TOKEN',
   CREATE_ACCOUNT: 'CREATE_ACCOUNT',
@@ -577,8 +579,10 @@ const r = {
   CREATE_ORDER_WAKA: 'CREATE_ORDER_WAKA',
   SEO_GAME_WAKA: 'SEO_GAME_WAKA',
   UPDATE_READER_TIME_ENTERPRISE: 'UPDATE_READER_TIME_ENTERPRISE'
-}
-const oc = {
+} as const
+export type IApiConstantKeys = keyof typeof ApiConstant
+
+export const ApiParams = {
   LOGIN_VIA_SOCIAL: ['code', 'type', 'id', 'os'],
   LOGIN_VIA_TOKEN: ['accessToken', 'refreshToken', 'id', 'os'],
   GET_OTP: ['account', 'time', 'mobile', 'os', 'app_version', 'id'],
@@ -726,9 +730,9 @@ const oc = {
   CREATE_ORDER_WAKA: ['account', 'item_id', 'charge_type', 'pay_type', 'bank_code', 'id', 'os'],
   SEO_GAME_WAKA: ['account', 'item_id', 'type', 'id', 'os'],
   UPDATE_READER_TIME_ENTERPRISE: ['account', 'enterprise_id', 'content_id', 'content_type', 'read_time', 'id', 'os']
-}
+} as const
 
-const co = {
+export const ApiPath = {
   LOGIN_VIA_SOCIAL: '/fm/loginViaOpenId',
   LOGIN_VIA_TOKEN: '/fm/loginViaToken',
   GET_OTP: '/getOTP',
@@ -866,4 +870,4 @@ const co = {
   CREATE_ORDER_WAKA: '/zalo/createOrderWaka',
   SEO_GAME_WAKA: '/super/seoGame',
   UPDATE_READER_TIME_ENTERPRISE: '/enterprise/updateReadTime'
-}
+} as const
