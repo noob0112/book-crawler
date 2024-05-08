@@ -121,6 +121,7 @@ export enum CrawlStatus {
   READY = 'ready',
   RUNNING = 'running',
   FINISHED = 'finished',
+  FAILED = 'failed',
 }
 
 export enum MountStatus {

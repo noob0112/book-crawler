@@ -11,7 +11,7 @@ export async function upsertSummaryBook(summaryBook: any) {
 
 export async function updateWhenCrawlFailed(bookId: number, options = { new: true }) {
   const filter = { id: bookId }
-  const update = { crawlStatus: CrawlStatus.READY }
+  const update = { crawlStatus: CrawlStatus.FAILED }
 
   return Book.findOneAndUpdate(filter, update, options)
 }
