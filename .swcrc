@@ -1,17 +1,42 @@
 {
-  "$schema": "http://json.schemastore.org/swcrc",
+  "$schema": "https://json.schemastore.org/swcrc",
   "jsc": {
     "parser": {
-      "syntax": "typescript"
-    }
+      "syntax": "typescript",
+      "tsx": false,
+      "dynamicImport": true,
+      "decorators": false
+    },
+    "experimental": {
+      "plugins": [
+        [
+          "@swc/plugin-transform-imports",
+          {
+            "^(.*?)(\\.ts)$": {
+              "skipDefaultConversion": true,
+              "transform": "{{matches.[1]}}.js"
+            }
+          }
+        ]
+      ]
+    },
+    "baseUrl": ".",
+    "paths": {
+      "#*": [
+        "./src/*"
+      ]
+    },
+    "target": "esnext",
+    "loose": false,
+    "externalHelpers": false,
+    "keepClassNames": false
   },
   "module": {
     "type": "es6",
-
-    // These are defaults.
     "strict": false,
-    "strictMode": true,
-    "lazy": false,
-    "noInterop": false
-  }
+    "strictMode": false,
+    "noInterop": false,
+    "lazy": false
+  },
+  // "minify": true
 }

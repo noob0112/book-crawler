@@ -6,8 +6,8 @@
   "main": "src/index.ts",
   "scripts": {
     "dev": "nodemon",
-    "build": "swc src --out-dir dist/src",
-    "build:ci": "rimraf ./dist && tsc && npm run build",
+    "build": "rimraf ./dist && swc src --out-dir dist --strip-leading-paths",
+    "build:ci": "tsc && npm run build",
     "start": "node dist/index.js",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
@@ -25,6 +25,7 @@
   "devDependencies": {
     "@swc/cli": "^0.3.12",
     "@swc/core": "^1.4.17",
+    "@swc/plugin-transform-imports": "^2.0.0",
     "@types/node": "^20.11.26",
     "@types/user-agents": "^1.0.4",
     "@typescript-eslint/eslint-plugin": "^7.2.0",

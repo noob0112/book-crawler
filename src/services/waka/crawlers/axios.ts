@@ -1,9 +1,15 @@
 import crypto from 'crypto'
-import axios, { AxiosInstance, AxiosProxyConfig, type AxiosHeaders, CreateAxiosDefaults, AxiosResponse } from 'axios'
+import axios, {
+  type AxiosInstance,
+  type AxiosProxyConfig,
+  type AxiosHeaders,
+  type CreateAxiosDefaults,
+  type AxiosResponse,
+} from 'axios'
 import UserAgent from 'user-agents'
 
-import { getRandomDeviceId } from '#utils'
-import { WAKA_API, ApiConstant, ApiParams, ApiPath, type IApiConstantKeys } from '#services/waka/constants'
+import { getRandomDeviceId } from '#utils.ts'
+import { WAKA_API, ApiConstant, ApiParams, ApiPath, type IApiConstantKeys } from '#services/waka/constants.ts'
 
 interface IGetItemInfoParams {
   account: string
